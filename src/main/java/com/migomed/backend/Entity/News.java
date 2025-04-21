@@ -1,4 +1,4 @@
-﻿package com.migomed.backend.Entity;
+package com.migomed.backend.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
