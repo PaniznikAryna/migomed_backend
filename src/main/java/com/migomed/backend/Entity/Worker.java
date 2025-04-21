@@ -15,8 +15,8 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long worker;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user", nullable = false, unique = true)
     private Users users;
 
     @Column(name = "specialization", nullable = false, length = 100)
