@@ -18,7 +18,6 @@ public class CommentsController {
 
     private final CommentsServices commentsServices;
 
-    // Вспомогательный метод для преобразования сущности в DTO
     private CommentResponseDTO convertToDto(Comments comment) {
         return new CommentResponseDTO(
                 comment.getId(),
@@ -27,7 +26,6 @@ public class CommentsController {
         );
     }
 
-    // GET /api/comments — возвращает список CommentResponseDTO
     @GetMapping
     public ResponseEntity<List<CommentResponseDTO>> getAllComments() {
         List<Comments> commentsList = commentsServices.getAllComments();
@@ -37,7 +35,6 @@ public class CommentsController {
         return ResponseEntity.ok(dtos);
     }
 
-    // GET /api/comments/{id} — возвращает один CommentResponseDTO
     @GetMapping("/{id}")
     public ResponseEntity<CommentResponseDTO> getCommentById(@PathVariable Long id) {
         Comments comment = commentsServices.getCommentsById(id);
@@ -47,14 +44,12 @@ public class CommentsController {
         return ResponseEntity.ok(convertToDto(comment));
     }
 
-    // POST /api/comments — создаёт комментарий и возвращает CommentResponseDTO
     @PostMapping
     public ResponseEntity<CommentResponseDTO> createComments(@RequestBody Comments comments) {
         Comments savedComment = commentsServices.saveComments(comments);
         return ResponseEntity.status(HttpStatus.CREATED).body(convertToDto(savedComment));
     }
 
-    // PUT /api/comments/{id} — обновляет комментарий и возвращает CommentResponseDTO
     @PutMapping("/{id}")
     public ResponseEntity<CommentResponseDTO> updateComments(@PathVariable Long id, @RequestBody Comments updatedCommentsData) {
         Comments existingComments = commentsServices.getCommentsById(id);
@@ -66,7 +61,6 @@ public class CommentsController {
         return ResponseEntity.ok(convertToDto(updatedComments));
     }
 
-    // DELETE /api/comments/{id} — удаляет комментарий
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteComments(@PathVariable Long id) {
         commentsServices.deleteComments(id);

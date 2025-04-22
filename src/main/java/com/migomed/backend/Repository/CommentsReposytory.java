@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CommentsReposytory extends JpaRepository<Comments, Long> {
-    // Добавления сортировки комментариев можно реализовать здесь
+    // Добавления сортировки комментариев
 }
