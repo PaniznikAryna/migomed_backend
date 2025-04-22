@@ -11,11 +11,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())  // для простоты тестирования отключаем CSRF
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/news/**", "/error").permitAll() // разрешаем публичный доступ к новостям и /error
-                        .anyRequest().authenticated()
-                );
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers("/api/news/**", "/api/services/**", "/error").permitAll();
+                    authorize.anyRequest().authenticated();
+                });
         return http.build();
     }
 }

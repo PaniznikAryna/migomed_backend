@@ -43,7 +43,6 @@ public class NewsController {
         if (existingNews == null) {
             return ResponseEntity.notFound().build();
         }
-        // Обновляем только изменяемые поля (publicationDate не изменяется, так как updatable=false)
         existingNews.setHeadline(updatedNewsData.getHeadline());
         existingNews.setContent(updatedNewsData.getContent());
         News updatedNews = newsService.saveNews(existingNews);
