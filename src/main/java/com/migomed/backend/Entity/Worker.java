@@ -29,6 +29,6 @@ public class Worker {
     private int experience;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_photo", nullable = false,  unique = true)
+    @JoinColumn(name = "id_photo", unique = true)
     private Photo photo;
 }
