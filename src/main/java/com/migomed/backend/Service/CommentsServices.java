@@ -1,7 +1,7 @@
 package com.migomed.backend.Service;
 
 import com.migomed.backend.Entity.Comments;
-import com.migomed.backend.Repository.CommentsReposytory;
+import com.migomed.backend.Repository.CommentsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CommentsServices {
-    private final CommentsReposytory commentsReposytory;
+    private final CommentsRepository commentsReposytory;
 
     public List<Comments> getAllComments(){
         return commentsReposytory.findAll();
