@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CommentsServices {
+public class CommentsService {
     private final CommentsRepository commentsReposytory;
 
     public List<Comments> getAllComments(){

@@ -1,7 +1,7 @@
 package com.migomed.backend.Controller;
 
 import com.migomed.backend.Entity.Comments;
-import com.migomed.backend.Service.CommentsServices;
+import com.migomed.backend.Service.CommentsService;
 import com.migomed.backend.dto.CommentResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CommentsController {
 
-    private final CommentsServices commentsServices;
+    private final CommentsService commentsServices;
 
     private CommentResponseDTO convertToDto(Comments comment) {
         return new CommentResponseDTO(
