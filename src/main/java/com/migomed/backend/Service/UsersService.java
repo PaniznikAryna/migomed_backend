@@ -3,7 +3,6 @@ package com.migomed.backend.Service;
 import com.migomed.backend.Entity.Users;
 import com.migomed.backend.Repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
