@@ -32,7 +32,6 @@ public class NewsController {
 
     @PostMapping
     public ResponseEntity<News> createNews(@RequestBody News news) {
-        // publicationDate устанавливается по умолчанию в сущности
         News savedNews = newsService.saveNews(news);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedNews);
     }
